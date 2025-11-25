@@ -20,7 +20,4 @@ Une mauvaise gestion des stocks de matériels de pêche. Achat en doublon d'un m
     - Moulins
     - Leurres
     - Fil
-    - Hameçons
-    - Attaches
-      - Agraphes
-      - Emerillons
+    - Montage
