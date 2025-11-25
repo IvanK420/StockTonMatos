@@ -29,7 +29,10 @@ Une mauvaise gestion des stocks de matériels de pêche. Achat en doublon d'un m
 
 ## Relation:
 Materiel -> Cannes, Moulins, leurres, fils, Montage (Heritage)
+
 Materiel -> Category (ManyToOne) non nullable
+
 Materiel -> Technique (ManyToMany) nullable
+
 Materiel -> DetailAchat (OneToone) nullable
 
