@@ -6,6 +6,9 @@ use App\Repository\MaterielRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MaterielRepository::class)]
+#[ORM\InheritanceType("JOINED")]
+#[ORM\DiscriminatorColumn(name: "discr", type: "string")]
+#[ORM\DiscriminatorMap(["materiel" => "Materiel", "moulin" => "Moulin", "fil" => "Fil", "leurre" => "Leurre", "montage" => "Montage"])]
 class Materiel
 {
     #[ORM\Id]
