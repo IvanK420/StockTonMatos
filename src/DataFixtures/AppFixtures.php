@@ -7,11 +7,17 @@ use App\Entity\CategoryFil;
 use App\Entity\CategoryLeurre;
 use App\Entity\CategoryMontage;
 use App\Entity\CategoryMoulin;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
+    public function __construct(private readonly UserPasswordHasherInterface $passwordHasher)
+    {
+    }
+
     public function load(ObjectManager $manager): void
     {
         $categoriesCannes = ['Casting', 'Spinning', 'Traîne', 'Télescopique'];
@@ -74,6 +80,13 @@ class AppFixtures extends Fixture
 
             $manager->persist($categoryMontage);
         }
+    $userTest = new User();
+    $userTest->setEmail('j@doe.test');
+    $userTest->setPseudo('johndoe');
+    // Hash du mot de passe via le hasher configuré (bcrypt/argon selon config)
+    $hashedPassword = $this->passwordHasher->hashPassword($userTest, 'test');
+    $userTest->setPassword($hashedPassword);
+    $manager->persist($userTest);
 
         $manager->flush();
     }
