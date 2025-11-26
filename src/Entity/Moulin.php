@@ -14,8 +14,7 @@ class Moulin extends Materiel
     #[ORM\Column]
     private ?int $poids = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $description = null;
+
 
     public function getTaille(): ?int
     {
@@ -37,18 +36,6 @@ class Moulin extends Materiel
     public function setPoids(int $poids): static
     {
         $this->poids = $poids;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): static
-    {
-        $this->description = $description;
 
         return $this;
     }
