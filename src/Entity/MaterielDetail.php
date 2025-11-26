@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\MaterielDetailRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+#[ApiResource]
 #[ORM\Entity(repositoryClass: MaterielDetailRepository::class)]
 class MaterielDetail
 {

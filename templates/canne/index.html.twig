@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Canne index{% endblock %}
+
+{% block body %}
+    <h1>Canne index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marque</th>
+                <th>Nom</th>
+                <th>Taille</th>
+                <th>Grammage</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for canne in cannes %}
+            <tr>
+                <td>{{ canne.id }}</td>
+                <td>{{ canne.Marque }}</td>
+                <td>{{ canne.Nom }}</td>
+                <td>{{ canne.taille }}</td>
+                <td>{{ canne.grammage }}</td>
+                <td>
+                    <a href="{{ path('app_canne_show', {'id': canne.id}) }}">show</a>
+                    <a href="{{ path('app_canne_edit', {'id': canne.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_canne_new') }}">Create new</a>
+{% endblock %}

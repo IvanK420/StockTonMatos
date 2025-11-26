@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\MaterielRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+#[ApiResource]
 #[ORM\Entity(repositoryClass: MaterielRepository::class)]
 #[ORM\InheritanceType("JOINED")]
 #[ORM\DiscriminatorColumn(name: "discr", type: "string")]
-#[ORM\DiscriminatorMap(["materiel" => "Materiel", "moulin" => "Moulin", "fil" => "Fil", "leurre" => "Leurre", "montage" => "Montage"])]
+#[ORM\DiscriminatorMap(["materiel" => "Materiel", "moulin" => "Moulin", "fil" => "Fil", "leurre" => "Leurre", "montage" => "Montage", "canne" => "Canne"])]
 class Materiel
 {
     #[ORM\Id]
@@ -17,19 +19,19 @@ class Materiel
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Marque = null;
+    private ?string $marque = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Nom = null;
+    private ?string $nom = null;
 
     #[ORM\ManyToOne(inversedBy: 'materiels')]
-    private ?Category $Category = null;
+    private ?Category $category = null;
 
     #[ORM\ManyToOne(inversedBy: 'materiels')]
-    private ?Emplacement $Emplacement = null;
+    private ?Emplacement $emplacement = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?MaterielDetail $MaterielDetail = null;
+    private ?MaterielDetail $materielDetail = null;
 
     public function getId(): ?int
     {
@@ -38,60 +40,60 @@ class Materiel
 
     public function getMarque(): ?string
     {
-        return $this->Marque;
+        return $this->marque;
     }
 
     public function setMarque(string $Marque): static
     {
-        $this->Marque = $Marque;
+        $this->marque = $Marque;
 
         return $this;
     }
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
     public function setNom(string $Nom): static
     {
-        $this->Nom = $Nom;
+        $this->nom = $Nom;
 
         return $this;
     }
 
     public function getCategory(): ?Category
     {
-        return $this->Category;
+        return $this->category;
     }
 
     public function setCategory(?Category $Category): static
     {
-        $this->Category = $Category;
+        $this->category = $Category;
 
         return $this;
     }
 
     public function getEmplacement(): ?Emplacement
     {
-        return $this->Emplacement;
+        return $this->emplacement;
     }
 
     public function setEmplacement(?Emplacement $Emplacement): static
     {
-        $this->Emplacement = $Emplacement;
+        $this->emplacement = $Emplacement;
 
         return $this;
     }
 
     public function getMaterielDetail(): ?MaterielDetail
     {
-        return $this->MaterielDetail;
+        return $this->materielDetail;
     }
 
     public function setMaterielDetail(?MaterielDetail $MaterielDetail): static
     {
-        $this->MaterielDetail = $MaterielDetail;
+        $this->materielDetail = $MaterielDetail;
 
         return $this;
     }

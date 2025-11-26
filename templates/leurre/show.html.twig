@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leurre{% endblock %}
+
+{% block body %}
+    <h1>Leurre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ leurre.id }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ leurre.Marque }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ leurre.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ leurre.taille }}</td>
+            </tr>
+            <tr>
+                <th>Poids</th>
+                <td>{{ leurre.poids }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ leurre.quantite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_leurre_index') }}">back to list</a>
+
+    <a href="{{ path('app_leurre_edit', {'id': leurre.id}) }}">edit</a>
+
+    {{ include('leurre/_delete_form.html.twig') }}
+{% endblock %}

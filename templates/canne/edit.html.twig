@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Canne{% endblock %}
+
+{% block body %}
+    <h1>Edit Canne</h1>
+
+    {{ include('canne/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_canne_index') }}">back to list</a>
+
+    {{ include('canne/_delete_form.html.twig') }}
+{% endblock %}

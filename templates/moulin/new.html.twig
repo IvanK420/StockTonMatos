@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Moulin{% endblock %}
+
+{% block body %}
+    <h1>Create new Moulin</h1>
+
+    {{ include('moulin/_form.html.twig') }}
+
+    <a href="{{ path('app_moulin_index') }}">back to list</a>
+{% endblock %}

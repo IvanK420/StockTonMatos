@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Fil{% endblock %}
+
+{% block body %}
+    <h1>Create new Fil</h1>
+
+    {{ include('fil/_form.html.twig') }}
+
+    <a href="{{ path('app_fil_index') }}">back to list</a>
+{% endblock %}

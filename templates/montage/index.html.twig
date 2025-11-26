@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Montage index{% endblock %}
+
+{% block body %}
+    <h1>Montage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marque</th>
+                <th>Nom</th>
+                <th>Taille</th>
+                <th>Quantite</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for montage in montages %}
+            <tr>
+                <td>{{ montage.id }}</td>
+                <td>{{ montage.Marque }}</td>
+                <td>{{ montage.Nom }}</td>
+                <td>{{ montage.taille }}</td>
+                <td>{{ montage.quantite }}</td>
+                <td>
+                    <a href="{{ path('app_montage_show', {'id': montage.id}) }}">show</a>
+                    <a href="{{ path('app_montage_edit', {'id': montage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_montage_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Leurre{% endblock %}
+
+{% block body %}
+    <h1>Create new Leurre</h1>
+
+    {{ include('leurre/_form.html.twig') }}
+
+    <a href="{{ path('app_leurre_index') }}">back to list</a>
+{% endblock %}

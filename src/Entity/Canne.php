@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Materiel;
 use Doctrine\ORM\Mapping as ORM;
-
+#[ORM\Entity]
 class Canne extends Materiel
 {
     #[ORM\Column(length: 255, nullable: true)]

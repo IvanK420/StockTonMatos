@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Canne{% endblock %}
+
+{% block body %}
+    <h1>Canne</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ canne.id }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ canne.Marque }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ canne.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ canne.taille }}</td>
+            </tr>
+            <tr>
+                <th>Grammage</th>
+                <td>{{ canne.grammage }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_canne_index') }}">back to list</a>
+
+    <a href="{{ path('app_canne_edit', {'id': canne.id}) }}">edit</a>
+
+    {{ include('canne/_delete_form.html.twig') }}
+{% endblock %}

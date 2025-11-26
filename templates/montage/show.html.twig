@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Montage{% endblock %}
+
+{% block body %}
+    <h1>Montage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ montage.id }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ montage.Marque }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ montage.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ montage.taille }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ montage.quantite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_montage_index') }}">back to list</a>
+
+    <a href="{{ path('app_montage_edit', {'id': montage.id}) }}">edit</a>
+
+    {{ include('montage/_delete_form.html.twig') }}
+{% endblock %}

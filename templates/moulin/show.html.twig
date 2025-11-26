@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Moulin{% endblock %}
+
+{% block body %}
+    <h1>Moulin</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ moulin.id }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ moulin.Marque }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ moulin.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ moulin.taille }}</td>
+            </tr>
+            <tr>
+                <th>Poids</th>
+                <td>{{ moulin.poids }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_moulin_index') }}">back to list</a>
+
+    <a href="{{ path('app_moulin_edit', {'id': moulin.id}) }}">edit</a>
+
+    {{ include('moulin/_delete_form.html.twig') }}
+{% endblock %}

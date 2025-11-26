@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leurre index{% endblock %}
+
+{% block body %}
+    <h1>Leurre index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marque</th>
+                <th>Nom</th>
+                <th>Taille</th>
+                <th>Poids</th>
+                <th>Quantite</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for leurre in leurres %}
+            <tr>
+                <td>{{ leurre.id }}</td>
+                <td>{{ leurre.Marque }}</td>
+                <td>{{ leurre.Nom }}</td>
+                <td>{{ leurre.taille }}</td>
+                <td>{{ leurre.poids }}</td>
+                <td>{{ leurre.quantite }}</td>
+                <td>
+                    <a href="{{ path('app_leurre_show', {'id': leurre.id}) }}">show</a>
+                    <a href="{{ path('app_leurre_edit', {'id': leurre.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_leurre_new') }}">Create new</a>
+{% endblock %}
