@@ -22,6 +22,15 @@ class Materiel
     #[ORM\Column(length: 255)]
     private ?string $Nom = null;
 
+    #[ORM\ManyToOne(inversedBy: 'materiels')]
+    private ?Category $Category = null;
+
+    #[ORM\ManyToOne(inversedBy: 'materiels')]
+    private ?Emplacement $Emplacement = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?MaterielDetail $MaterielDetail = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,6 +56,42 @@ class Materiel
     public function setNom(string $Nom): static
     {
         $this->Nom = $Nom;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->Category;
+    }
+
+    public function setCategory(?Category $Category): static
+    {
+        $this->Category = $Category;
+
+        return $this;
+    }
+
+    public function getEmplacement(): ?Emplacement
+    {
+        return $this->Emplacement;
+    }
+
+    public function setEmplacement(?Emplacement $Emplacement): static
+    {
+        $this->Emplacement = $Emplacement;
+
+        return $this;
+    }
+
+    public function getMaterielDetail(): ?MaterielDetail
+    {
+        return $this->MaterielDetail;
+    }
+
+    public function setMaterielDetail(?MaterielDetail $MaterielDetail): static
+    {
+        $this->MaterielDetail = $MaterielDetail;
 
         return $this;
     }
