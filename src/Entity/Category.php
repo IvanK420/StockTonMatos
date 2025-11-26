@@ -6,6 +6,15 @@ use App\Repository\CategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
+#[ORM\InheritanceType('SINGLE_TABLE')]
+#[ORM\DiscriminatorMap([
+    'base' => Category::class,
+    'canne' => CategoryCanne::class,
+    'moulin' => CategoryMoulin::class,
+    'fil' => CategoryFil::class,
+    'leurre' => CategoryLeurre::class,
+    'montage' => CategoryMontage::class,
+])]
 class Category
 {
     #[ORM\Id]

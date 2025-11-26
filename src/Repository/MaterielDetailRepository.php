@@ -2,39 +2,39 @@
 
 namespace App\Repository;
 
-use App\Entity\DetailAchat;
+use App\Entity\MaterielDetail;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<DetailAchat>
+ * @extends ServiceEntityRepository<MaterielDetail>
  */
-class DetailAchatRepository extends ServiceEntityRepository
+class MaterielDetailRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, DetailAchat::class);
+        parent::__construct($registry, MaterielDetail::class);
     }
 
 //    /**
-//     * @return DetailAchat[] Returns an array of DetailAchat objects
+//     * @return MaterielDetail[] Returns an array of MaterielDetail objects
 //     */
 //    public function findByExampleField($value): array
 //    {
-//        return $this->createQueryBuilder('d')
-//            ->andWhere('d.exampleField = :val')
+//        return $this->createQueryBuilder('m')
+//            ->andWhere('m.exampleField = :val')
 //            ->setParameter('val', $value)
-//            ->orderBy('d.id', 'ASC')
+//            ->orderBy('m.id', 'ASC')
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?DetailAchat
+//    public function findOneBySomeField($value): ?MaterielDetail
 //    {
-//        return $this->createQueryBuilder('d')
-//            ->andWhere('d.exampleField = :val')
+//        return $this->createQueryBuilder('m')
+//            ->andWhere('m.exampleField = :val')
 //            ->setParameter('val', $value)
 //            ->getQuery()
 //            ->getOneOrNullResult()
