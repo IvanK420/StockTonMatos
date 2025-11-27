@@ -27,7 +27,7 @@ Une mauvaise gestion des stocks de matériels de pêche. Achat en doublon d'un m
   - Techniques
   - DetailAchat
 
-## Relation:
+## [Relation:](https://github.com/IvanK420/StockTonMatos/blob/main/maquettes/Entit%C3%A9s%20StockTonMatos.drawio.png)
 Materiel -> Cannes, Moulins, leurres, fils, Montage (Heritage)
 
 Materiel -> Category (ManyToOne) non nullable
