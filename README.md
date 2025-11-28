@@ -1,6 +1,8 @@
 # StockTonMatos
 Projet symfony d'une API de gestion des stocks
 
+[Lien vers le projet front](https://github.com/IvanK420/StockTonMatosFront)
+
 ## Problématique: 
 
 Une mauvaise gestion des stocks de matériels de pêche. Achat en doublon d'un même matériel, perte de temps lors de la préparation des sessions.
