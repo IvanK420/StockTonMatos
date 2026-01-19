@@ -20,7 +20,7 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $categoriesCannes = ['Casting', 'Spinning', 'Traîne', 'Télescopique'];
+        $categoriesCannes = ['Cannes Casting', 'Cannes Spinning', 'Cannes Traîne', 'Cannes Télescopique'];
 
         foreach ($categoriesCannes as $nom) {
             // Crée une instance de l'entité fille
@@ -28,6 +28,7 @@ class AppFixtures extends Fixture
 
             // Le nom est hérité de la classe mère Category
             $categoryCanne->setNom($nom);
+            $categoryCanne->setImage('https://placehold.co/150');
 
             $manager->persist($categoryCanne);
         }
@@ -40,7 +41,7 @@ class AppFixtures extends Fixture
 
             // Le nom est hérité de la classe mère Category
             $categoryLeurre->setNom($nom);
-
+            $categoryLeurre->setImage('https://placehold.co/150');
             $manager->persist($categoryLeurre);
         }
 
@@ -52,12 +53,12 @@ class AppFixtures extends Fixture
 
             // Le nom est hérité de la classe mère Category
             $categoryFil->setNom($nom);
-
+            $categoryFil->setImage('https://placehold.co/150');
             $manager->persist($categoryFil);
 
         }
 
-        $categoriesMoulin=['Spinning','Casting'];
+        $categoriesMoulin=['Moulins Spinning','Moulins Casting'];
 
         foreach ($categoriesMoulin as $nom) {
             // Crée une instance de l'entité fille
@@ -65,7 +66,7 @@ class AppFixtures extends Fixture
 
             // Le nom est hérité de la classe mère Category
             $categoryMoulin->setNom($nom);
-
+            $categoryMoulin->setImage('https://placehold.co/150');
             $manager->persist($categoryMoulin);
         }
 
@@ -77,7 +78,7 @@ class AppFixtures extends Fixture
 
             // Le nom est hérité de la classe mère Category
             $categoryMontage->setNom($nom);
-
+            $categoryMontage->setImage('https://placehold.co/150');
             $manager->persist($categoryMontage);
         }
     $userTest = new User();
