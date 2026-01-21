@@ -33,6 +33,9 @@ class Materiel
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?MaterielDetail $materielDetail = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -94,6 +97,18 @@ class Materiel
     public function setMaterielDetail(?MaterielDetail $MaterielDetail): static
     {
         $this->materielDetail = $MaterielDetail;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }

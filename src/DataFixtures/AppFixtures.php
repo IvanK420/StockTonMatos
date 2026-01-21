@@ -8,6 +8,8 @@ use App\Entity\CategoryLeurre;
 use App\Entity\CategoryMontage;
 use App\Entity\CategoryMoulin;
 use App\Entity\User;
+use App\Entity\Canne;
+use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -81,6 +83,19 @@ class AppFixtures extends Fixture
             $categoryMontage->setImage('https://placehold.co/150');
             $manager->persist($categoryMontage);
         }
+        $category = $manager->getRepository(Category::class)->find(47);
+       $cannes = ['Canne 1', 'Canne 2', 'Canne 3'];
+         foreach ($cannes as $nom) {
+              $canne = new Canne();
+              $canne->setNom($nom);
+              $canne->setImage('https://placehold.co/150');
+              $canne->setTaille('2.10m');
+              $canne->setGrammage(30);
+              $canne->setCategory($category);
+              $canne->setMarque('Marque X');
+              $canne->setMaterielDetail(null);
+              $manager->persist($canne);
+         }
     $userTest = new User();
     $userTest->setEmail('j@doe.test');
     $userTest->setPseudo('johndoe');
