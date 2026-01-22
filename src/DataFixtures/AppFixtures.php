@@ -83,7 +83,17 @@ class AppFixtures extends Fixture
             $categoryMontage->setImage('https://placehold.co/150');
             $manager->persist($categoryMontage);
         }
-        $category = $manager->getRepository(Category::class)->find(47);
+
+        $emplacements = ['Garage', 'Cave', 'Placard', 'Boîte à pêche'];
+        foreach ($emplacements as $nom) {
+            $emplacement = new \App\Entity\Emplacement();
+            $emplacement->setNom($nom);
+            $emplacement->setImage('https://placehold.co/150');
+            $emplacement->setQrCodeData('QR_'.$nom);
+            $manager->persist($emplacement);
+        }
+        $emplacement = $manager->getRepository(\App\Entity\Emplacement::class)->findOneBy(['nom' => 'Garage']);
+        $category = $manager->getRepository(Category::class)->findOneBy(['nom' => 'Cannes Spinning']);
        $cannes = ['Canne 1', 'Canne 2', 'Canne 3'];
          foreach ($cannes as $nom) {
               $canne = new Canne();

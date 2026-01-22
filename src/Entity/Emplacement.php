@@ -25,8 +25,11 @@ class Emplacement
     /**
      * @var Collection<int, Materiel>
      */
-    #[ORM\OneToMany(targetEntity: Materiel::class, mappedBy: 'Emplacement')]
+    #[ORM\OneToMany(targetEntity: Materiel::class, mappedBy: 'emplacement')]
     private Collection $materiels;
+
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
 
     public function __construct()
     {
@@ -88,6 +91,18 @@ class Emplacement
                 $materiel->setEmplacement(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }
