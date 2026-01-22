@@ -7,8 +7,17 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 
-#[ApiResource]
+#[ApiResource(
+    // operations: [
+    //     new Get(normalizationContext: ['groups' => ['read:category']]),
+    //     new GetCollection(normalizationContext: ['groups' => ['read:category']])
+    // ]
+    normalizationContext: ['groups' => ['read:category']]
+)]
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\InheritanceType('SINGLE_TABLE')]
 
@@ -25,18 +34,22 @@ class Category
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+     #[Groups(['read:category'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+     #[Groups(['read:category'])]
     private ?string $nom = null;
 
     /**
      * @var Collection<int, Materiel>
      */
     #[ORM\OneToMany(targetEntity: Materiel::class, mappedBy: 'category')]
+    #[Groups(['read:category'])]
     private Collection $materiels;
 
     #[ORM\Column(length: 255)]
+     #[Groups(['read:category'])]
     private ?string $image = null;
 
     public function __construct()
