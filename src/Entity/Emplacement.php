@@ -7,28 +7,35 @@ use App\Repository\EmplacementRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-#[ApiResource]
+use Symfony\Component\Serializer\Annotation\Groups;
+
+#[ApiResource(normalizationContext: ['groups' => ['read:category']])]
 #[ORM\Entity(repositoryClass: EmplacementRepository::class)]
 class Emplacement
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['read:category'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['read:category'])]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['read:category'])]
     private ?string $qrCodeData = null;
 
     /**
      * @var Collection<int, Materiel>
      */
     #[ORM\OneToMany(targetEntity: Materiel::class, mappedBy: 'emplacement')]
+    #[Groups(['read:category'])]
     private Collection $materiels;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['read:category'])]
     private ?string $image = null;
 
     public function __construct()
