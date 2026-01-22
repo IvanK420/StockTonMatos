@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ApiResource(normalizationContext: ['groups' => ['read:category']])]
+#[ApiResource(normalizationContext: ['groups' => ['read:category']],forceEager: false,)]
 #[ORM\Entity(repositoryClass: EmplacementRepository::class)]
 class Emplacement
 {

@@ -16,7 +16,8 @@ use ApiPlatform\Metadata\GetCollection;
     //     new Get(normalizationContext: ['groups' => ['read:category']]),
     //     new GetCollection(normalizationContext: ['groups' => ['read:category']])
     // ]
-    normalizationContext: ['groups' => ['read:category']]
+    normalizationContext: ['groups' => ['read:category']],
+    forceEager: false,
 )]
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\InheritanceType('SINGLE_TABLE')]

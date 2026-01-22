@@ -7,7 +7,7 @@ use App\Repository\MaterielRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ApiResource]
+#[ApiResource (normalizationContext: ['groups' => ['read:category']],forceEager: false,)]
 #[ORM\Entity(repositoryClass: MaterielRepository::class)]
 #[ORM\InheritanceType("JOINED")]
 #[ORM\DiscriminatorColumn(name: "discr", type: "string")]
@@ -29,9 +29,11 @@ class Materiel
     private ?string $nom = null;
 
     #[ORM\ManyToOne(inversedBy: 'materiels')]
+    #[Groups(['read:category'])]
     private ?Category $category = null;
 
     #[ORM\ManyToOne(inversedBy: 'materiels')]
+    #[Groups(['read:category'])]
     private ?Emplacement $emplacement = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
